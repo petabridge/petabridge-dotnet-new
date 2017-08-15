@@ -3,6 +3,7 @@
   "classifications": [ "Petabridge", "DocFx", "Tests" ],
   "name": "Petabridge .NET Core Library",
   "identity": "Petabridge.Library", 
+  "description": "A professional .NET Core project setup including build scripts, documentation, unit tests, and performance tests for a class library project.",
   "shortName": "pb-lib",              
   "groupIdentity": "Petabridge",
   "tags": {
