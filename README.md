@@ -1,5 +1,7 @@
 # petabridge-dotnet-new
-.NET CLI template for Petabridge-style projects
+.NET CLI template for Petabridge-style projects.
+
+![Petabridge logo](docs/images/petabridge_logo_square.png)
 
 ## Goals
 The goal of this project is provide templates for creating professional-quality OSS projects that do the following:
@@ -11,3 +13,4 @@ The goal of this project is provide templates for creating professional-quality 
 5. Have standardized conventions that allow all of the above to be extended and workable.
 
 ## Available Templates
+
