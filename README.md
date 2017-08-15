@@ -30,7 +30,7 @@ The following templates are installed as part of your `Petabridge.Templates` ins
 
 |    Template Name   | Short Name | Description                                                                                                                                   |
 |:------------------:|------------|-----------------------------------------------------------------------------------------------------------------------------------------------|
-| Petabridge.Library | pb-lib     | A professional .NET Core project setup including build scripts, documentation, unit tests, and performance tests for a class library project. |
+| [Petabridge.Library](src/Content/Petabridge.Library/README.md) | pb-lib     | A professional .NET Core project setup including build scripts, documentation, unit tests, and performance tests for a class library project. |
 
 To use one of these templates, you can use the `dotnet new` command followed by the name or shortname.
 
@@ -54,4 +54,4 @@ We accept pull requests! Please let us know what we can do to make these templat
 Petabridge provides [Akka.NET](http://getakka.net/) consulting, training, and support including advanced training in [Akka.Remote](https://petabridge.com/training/akka-remoting/), [Akka.Cluster](https://petabridge.com/training/akka-clustering/), and [Akka.NET Design Patterns](https://petabridge.com/training/akka-design-patterns/)!
 
 ---
-Copyright 2015 - 2017 Petabridge, LLC
+Copyright 2015 - 2017 Petabridge, LLC. All rights reserved.
