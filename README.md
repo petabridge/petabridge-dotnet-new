@@ -28,9 +28,17 @@ C:\> dotnet new -u Petabridge.Templates
 ### Available Templates
 The following templates are installed as part of your `Petabridge.Templates` installation:
 
-|    Template Name   | Short Name | Description                                                                                                                                   | Installation        |
-|:------------------:|------------|-----------------------------------------------------------------------------------------------------------------------------------------------|---------------------|
-| [Petabridge.Library](src/Content/README.md) | pb-lib     | A professional .NET Core project setup including build scripts, documentation, unit tests, and performance tests for a class library project. | `dotnet new pb-lib` |
+|    Template Name   | Short Name | Description                                                                                                                                   |
+|:------------------:|------------|-----------------------------------------------------------------------------------------------------------------------------------------------|
+| Petabridge.Library | pb-lib     | A professional .NET Core project setup including build scripts, documentation, unit tests, and performance tests for a class library project. |
+
+To use one of these templates, you can use the `dotnet new` command followed by the name or shortname.
+
+```
+C:\> dotnet new pb-lib [-n name] [other arguments]
+```
+
+See [the official `dotnet new` documentation](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-new) for more information on the sorts of options that are available when using project templates.
 
 You can read more about how these templates work by clicking on their titles and reading the `README.md` for each individual project.
 
@@ -43,7 +51,7 @@ We accept pull requests! Please let us know what we can do to make these templat
 
 [Petabridge](http://petabridge.com/) is a company dedicated to making it easier for .NET developers to build distributed and high-performance applications in .NET.
 
-Petabridge provides Akka.NET consulting and training, including advanced training in [Akka.Remote](https://petabridge.com/training/akka-remoting/), [Akka.Cluster](https://petabridge.com/training/akka-clustering/), and [Akka.NET Design Patterns](https://petabridge.com/training/akka-design-patterns/)!
+Petabridge provides [Akka.NET](http://getakka.net/) consulting, training, and support including advanced training in [Akka.Remote](https://petabridge.com/training/akka-remoting/), [Akka.Cluster](https://petabridge.com/training/akka-clustering/), and [Akka.NET Design Patterns](https://petabridge.com/training/akka-design-patterns/)!
 
 ---
 Copyright 2015 - 2017 Petabridge, LLC
