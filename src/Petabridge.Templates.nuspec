@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        <id>@project@</id>
+        <title>@project@@title@</title>
+        <description>@description@</description>
+        <version>@build.number@</version>
+        <authors>@authors@</authors>
+        <owners>@authors@</owners>
+        <language>en-US</language>
+        <projectUrl>https://github.com/petabridge/petabridge-dotnet-new</projectUrl>
+        <licenseUrl>https://github.com/petabridge/petabridge-dotnet-new/blob/master/LICENSE</licenseUrl>
+        <iconUrl>https://petabridge.com/images/logo.png</iconUrl>
+        <copyright>@copyright@</copyright>
+        <tags>@tags@</tags>
+        <releaseNotes>@releaseNotes@</releaseNotes>
+        <requireLicenseAcceptance>true</requireLicenseAcceptance>
+        <packageTypes>
+            <packageType name="Template" />
+        </packageTypes>
+    </metadata>
+</package>
