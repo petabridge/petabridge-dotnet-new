@@ -1,14 +1,26 @@
 using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NBench;
 
 namespace Petabridge.Library.Tests.Performance
 {
-    [TestClass]
     public class UnitTest1
     {
-        [TestMethod]
+        public const string CounterName = "Operations";
+        private Counter _opsCounter;
+
+        [PerfSetup]
+        public void Setup(BenchmarkContext context)
+        {
+            _opsCounter = context.GetCounter(CounterName);
+        }
+
+        [PerfBenchmark(NumberOfIterations = 5, RunMode = RunMode.Throughput, RunTimeMilliseconds = 1000)]
+        [CounterMeasurement(CounterName)]
+        [GcMeasurement(GcMetric.TotalCollections, GcGeneration.AllGc)]
+        [MemoryMeasurement(MemoryMetric.TotalBytesAllocated)]
         public void TestMethod1()
         {
+            _opsCounter.Increment();
         }
     }
 }
