@@ -47,6 +47,7 @@ Target "Clean" (fun _ ->
     CleanDir outputTests
     CleanDir outputPerfTests
     CleanDir outputNuGet
+    CleanDir workingDir
     CleanDir "docs/_site"
     CleanDirs !! "./**/bin"
     CleanDirs !! "./**/obj"
@@ -59,17 +60,19 @@ Target "Clean" (fun _ ->
 let overrideVersionSuffix (project:string) =
     match project with
     | _ -> versionSuffix // add additional matches to publish different versions for different projects in solution
-Target "CreateNuget" (fun _ ->    
+Target "CreateNuget" (fun _ -> 
+    ensureDirectory outputNuGet   
     let nuspecFiles = !! "src/**/*.nuspec" 
 
     for nuspec in nuspecFiles do
         printfn "Creating nuget packages for %s" nuspec
+        CleanDir workingDir
         
         let project = Path.GetFileNameWithoutExtension nuspec 
         let projectDir = Path.GetDirectoryName nuspec
         let releaseVersion = releaseNotes.NugetVersion
 
-        let pack outputDir symbolPackage =
+        let pack outputDir =
             NuGetHelper.NuGet
                 (fun p ->
                     { p with
@@ -82,8 +85,10 @@ Target "CreateNuget" (fun _ ->
                         Version = releaseVersion
                         Tags = tags |> String.concat " "
                         OutputPath = outputDir
-                        WorkingDir = projectDir})
+                        WorkingDir = workingDir})
                 nuspec
+
+        CopyDir workingDir projectDir allFiles
 
         pack outputNuGet 
 )
