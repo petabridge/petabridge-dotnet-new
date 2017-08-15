@@ -19,7 +19,7 @@ let tags = ["";]
 let configuration = "Release"
 
 // Read release notes and version
-let solutionFile = "./Petabridge.Library.sln"
+let solutionFile = FindFirstMatchingFile "*.sln" __SOURCE_DIRECTORY__  // dynamically look up the solution
 let buildNumber = environVarOrDefault "BUILD_NUMBER" "0"
 let preReleaseVersionSuffix = (if (not (buildNumber = "0")) then (buildNumber) else "") + "-beta"
 let versionSuffix = 
@@ -152,42 +152,6 @@ Target "NBench" <| fun _ ->
         if result <> 0 then failwithf "NBench.Runner failed. %s %s" nbenchTestPath args
     
     nbenchTestAssemblies |> Seq.iter runNBench
-
-Target "CopyOutput" (fun _ ->    
-    // .NET 4.5
-    if (isWindows) then 
-        let projects = [ ("NBench", "./src/NBench/NBench.csproj", "net452");
-                         ("NBench.PerformanceCounters", "./src/NBench.PerformanceCounters/NBench.PerformanceCounters.csproj", "net452"); 
-                         ("NBench.Runner", "./src/NBench.Runner/NBench.Runner.csproj", "net452") ]
-
-        let publishSingleProjectNet45 project =
-            let projectName, projectPath, projectFramework = project
-            DotNetCli.Publish
-                (fun p -> 
-                    { p with
-                        Project = projectPath
-                        Framework = projectFramework
-                        Output = output @@ projectName @@ projectFramework
-                        Configuration = configuration })       
-
-    
-        projects |> List.iter (fun p -> publishSingleProjectNet45 p)
-    
-    let netCoreProjects = [ ("NBench", "./src/NBench/NBench.csproj", "netstandard1.6");
-                            ("NBench.Runner.DotNetCli", "./src/NBench.Runner.DotNetCli/NBench.Runner.DotNetCli.csproj", "netcoreapp1.1") ]
-
-    let publishSingleProjectNetCoreApp project = 
-        let projectName, projectPath, projectFramework = project
-        DotNetCli.Publish
-            (fun p -> 
-                { p with
-                    Project = projectPath
-                    Framework = projectFramework
-                    Output = output @@ projectName @@ projectFramework
-                    Configuration = configuration })
-
-    netCoreProjects |> List.iter (fun p -> publishSingleProjectNetCoreApp p)
-)
 
 
 //--------------------------------------------------------------------------------

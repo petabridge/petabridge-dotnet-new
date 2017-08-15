@@ -1,0 +1,16 @@
+{
+  "author": "Petabridge",
+  "classifications": [ "Petabridge", "DocFx", "Tests" ],
+  "name": "Petabridge .NET Core Library",
+  "identity": "Petabridge.Library", 
+  "shortName": "pb-lib",              
+  "groupIdentity": "Petabridge",
+  "tags": {
+    "language": "C#",                      
+    "type": "project"
+  },
+  "sourceName": "Petabridge.Library",       
+  "primaryOutputs": [ { "path": "Petabridge.Library.sln" } ],
+  "defaultName": "Library1",
+  "preferNameDirectory" : "true"
+}
