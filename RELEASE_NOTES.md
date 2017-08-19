@@ -1,3 +1,8 @@
+#### 0.1.2 August 19 2017 ####
+* Added .gitignore file to the Petabridge.Library template
+* Added a sample Apache 2 `LICENSE` file to the template
+* Added `AssemblyInfo` stage in order to sync `RELEASE_NOTES.md` with `common.props`; now you only need to update the assembly version of your projects inside `RELEASE_NOTES.md`.
+
 #### 0.1.1 August 15 2017 ####
 Added a `description` field to the Petabridge.Library template.
 
