@@ -20,9 +20,6 @@ build/
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
-# FAKE
-tools/
-
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/
