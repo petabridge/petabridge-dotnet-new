@@ -21,6 +21,7 @@ let configuration = "Release"
 // Read release notes and version
 let solutionFile = FindFirstMatchingFile "*.sln" __SOURCE_DIRECTORY__  // dynamically look up the solution
 let buildNumber = environVarOrDefault "BUILD_NUMBER" "0"
+let hasTeamCity = (not (buildNumber = "0")) // check if we have the TeamCity environment variable for build # set
 let preReleaseVersionSuffix = (if (not (buildNumber = "0")) then (buildNumber) else "") + "-beta"
 let versionSuffix = 
     match (getBuildParam "nugetprerelease") with
@@ -108,10 +109,15 @@ Target "RunTests" (fun _ ->
         | _ -> !! "./src/**/*.Tests.csproj" // if you need to filter specs for Linux vs. Windows, do it here
 
     let runSingleProject project =
+        let arguments =
+            match (hasTeamCity) with
+            | true -> (sprintf "xunit -c Release -nobuild -parallel none -teamcity -xml %s_xunit.xml" (outputTests @@ fileNameWithoutExt project))
+            | false -> (sprintf "xunit -c Release -nobuild -parallel none -xml %s_xunit.xml" (outputTests @@ fileNameWithoutExt project))
+
         let result = ExecProcess(fun info ->
             info.FileName <- "dotnet"
             info.WorkingDirectory <- (Directory.GetParent project).FullName
-            info.Arguments <- (sprintf "xunit -c Release -nobuild -parallel none -teamcity -xml %s_xunit.xml" (outputTests @@ fileNameWithoutExt project))) (TimeSpan.FromMinutes 30.)
+            info.Arguments <- arguments) (TimeSpan.FromMinutes 30.0) 
         
         ResultHandling.failBuildIfXUnitReportedError TestRunnerErrorLevel.DontFailBuild result
 
