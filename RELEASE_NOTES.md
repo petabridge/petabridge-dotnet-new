@@ -1,6 +1,6 @@
 #### 0.1.3 October 18 2017 ####
 * [`build.fsx` can not automatically detect TeamCity and toggle TC formatting on and off for XUnit2 test runs](https://github.com/petabridge/petabridge-dotnet-new/pull/19).
-* [U]pdated XUnit2 target version to 2.3.0 stable](https://github.com/petabridge/petabridge-dotnet-new/pull/20).
+* [Updated XUnit2 target version to 2.3.0 stable](https://github.com/petabridge/petabridge-dotnet-new/pull/20).
 
 #### 0.1.2 August 19 2017 ####
 * Added .gitignore file to the Petabridge.Library template
