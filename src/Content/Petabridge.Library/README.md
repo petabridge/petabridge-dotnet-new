@@ -33,6 +33,15 @@ All of the relevant articles you wish to write should be added to the `/docs/art
 
 All of the documentation will be statically generated and the output will be placed in the `/docs/_site/` folder. 
 
+#### Previewing Documentation
+To preview the documentation for this project, execute the following command at the root of this folder:
+
+```
+C:\> serve-docs.cmd
+```
+
+This will use the built-in `docfx.console` binary that is installed as part of the NuGet restore process from executing any of the usual `build.cmd` or `build.sh` steps to preview the fully-rendered documentation. For best results, do this immediately after calling `build.cmd buildRelease`.
+
 ### Release Notes, Version Numbers, Etc
 This project will automatically populate its release notes in all of its modules via the entries written inside [`RELEASE_NOTES.md`](RELEASE_NOTES.md) and will automatically update the versions of all assemblies and NuGet packages via the metadata included inside [`common.props`](src/common.props).
 

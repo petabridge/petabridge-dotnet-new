@@ -1,3 +1,8 @@
+#### 0.2.0 January 17 2018 ####
+* [Upgrade template to .NET Standard 2.0](https://github.com/petabridge/petabridge-dotnet-new/issues/28).
+* [See the full v0.2.0 change set here](https://github.com/petabridge/petabridge-dotnet-new/milestone/1).
+
+
 #### 0.1.3 October 18 2017 ####
 * [`build.fsx` can not automatically detect TeamCity and toggle TC formatting on and off for XUnit2 test runs](https://github.com/petabridge/petabridge-dotnet-new/pull/19).
 * [Updated XUnit2 target version to 2.3.0 stable](https://github.com/petabridge/petabridge-dotnet-new/pull/20).
