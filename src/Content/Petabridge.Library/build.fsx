@@ -129,7 +129,7 @@ Target "NBench" <| fun _ ->
     let nbenchTestPath = findToolInSubPath "NBench.Runner.exe" (toolsDir @@ "NBench.Runner*")
     printfn "Using NBench.Runner: %s" nbenchTestPath
 
-    let nbenchTestAssemblies = !! "./src/**/*Tests.Performance.csproj" 
+    let nbenchTestAssemblies = !! "./src/**/*Tests.Performance.dll" // doesn't support .NET Core at the moment
 
     let runNBench assembly =
         let includes = getBuildParam "include"
