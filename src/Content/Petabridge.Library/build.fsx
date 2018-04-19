@@ -50,8 +50,6 @@ Target "Clean" (fun _ ->
     CleanDir outputPerfTests
     CleanDir outputNuGet
     CleanDir "docs/_site"
-    CleanDirs !! "./**/bin"
-    CleanDirs !! "./**/obj"
 )
 
 Target "AssemblyInfo" (fun _ ->
@@ -68,18 +66,13 @@ Target "RestorePackages" (fun _ ->
 )
 
 Target "Build" (fun _ ->          
-    let runSingleProject project =
-        DotNetCli.Build
-            (fun p -> 
-                { p with
-                    Project = project
-                    Configuration = configuration 
-                    AdditionalArgs = ["--no-incremental"]}) // "Rebuild"  
-
-    let assemblies = !! "./src/**/*.csproj" 
-     
-    assemblies |> Seq.iter (runSingleProject)
+    DotNetCli.Build
+        (fun p -> 
+            { p with
+                Project = solutionFile
+                Configuration = configuration }) // "Rebuild"  
 )
+
 
 //--------------------------------------------------------------------------------
 // Tests targets 
@@ -271,7 +264,7 @@ Target "Nuget" DoNothing
 // all
 "BuildRelease" ==> "All"
 "RunTests" ==> "All"
-"NBench" ==> "All"
+//"NBench" ==> "All"
 "Nuget" ==> "All"
 
 RunTargetOrDefault "Help"

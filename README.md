@@ -106,4 +106,4 @@ We accept pull requests! Please let us know what we can do to make these templat
 Petabridge provides [Akka.NET](http://getakka.net/) consulting, training, and support including advanced training in [Akka.Remote](https://petabridge.com/training/akka-remoting/), [Akka.Cluster](https://petabridge.com/training/akka-clustering/), and [Akka.NET Design Patterns](https://petabridge.com/training/akka-design-patterns/)!
 
 ---
-Copyright 2015 - 2017 Petabridge, LLC. All rights reserved.
+Copyright 2015 - 2018 Petabridge® All rights reserved.
