@@ -114,7 +114,7 @@ Target "RunTests" (fun _ ->
 )
 
 Target "NBench" <| fun _ ->
-   let projects = 
+    let projects = 
         match (isWindows) with 
         | true -> !! "./src/**/*.Tests.Performance.csproj"
         | _ -> !! "./src/**/*.Tests.Performance.csproj" // if you need to filter specs for Linux vs. Windows, do it here
@@ -247,7 +247,7 @@ Target "Nuget" DoNothing
 // all
 "BuildRelease" ==> "All"
 "RunTests" ==> "All"
-//"NBench" ==> "All"
+"NBench" ==> "All"
 "Nuget" ==> "All"
 
 RunTargetOrDefault "Help"
