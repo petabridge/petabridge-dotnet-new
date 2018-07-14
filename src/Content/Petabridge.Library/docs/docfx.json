@@ -41,7 +41,8 @@
     "resource": [
       {
         "files": [
-          "images/**"
+          "images/**",
+          "web.config",
         ],
         "exclude": [
           "obj/**",
@@ -61,7 +62,7 @@
       "default",
       "template"
     ],
-    "postProcessors": [],
+    "postProcessors": ["ExtractSearchIndex"],
     "noLangKeyword": false
   }
 }
