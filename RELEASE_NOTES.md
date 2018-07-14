@@ -1,3 +1,14 @@
+#### 0.3.0 July 14 2018 ####
+This is a major update to the `Petabridge.Library` `dotnet new` template; most notably it enables .NET Core execution of performance tests using [NBench v1.2.1](https://github.com/petabridge/NBench#running-nbench-tests-with-dotnet-nbench) and the new `dotnet nbench` tool. In addition, we've fixed a number of issues related to DocFx output.
+
+* [Update template to support NBench for .NET Standard and .NET Core](https://github.com/petabridge/petabridge-dotnet-new/issues/24) - also automatically runs NBench now as part of the `./build.cmd all` or `./build.sh all` invocations.
+* [DocFx: fix searchbar on IIS](https://github.com/petabridge/petabridge-dotnet-new/issues/54)
+* [DocFx: add support for sitemaps](https://github.com/petabridge/petabridge-dotnet-new/issues/47)
+* [DocFx: Bug: API documentation not generated correctly out of the box for .NET Standard 2.0](https://github.com/petabridge/petabridge-dotnet-new/issues/36)
+* [Bug: build.sh references incorrect URL for dotnet-install.sh](https://github.com/petabridge/petabridge-dotnet-new/issues/51)
+
+You can [see the full list of changes for this update here](https://github.com/petabridge/petabridge-dotnet-new/milestone/2).
+
 #### 0.2.1 April 19 2018 ####
 * [Disable NBench by default](https://github.com/petabridge/petabridge-dotnet-new/pull/41)
 * [Add default description tag to projects](https://github.com/petabridge/petabridge-dotnet-new/issues/33)
