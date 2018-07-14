@@ -50,6 +50,9 @@
         ]
       }
     ],
+     "sitemap": {
+       "baseUrl": "https://yoursite.github.io/"
+     },
     "dest": "_site",
     "globalMetadata": {
       "_appTitle": "Petabridge.Library",
