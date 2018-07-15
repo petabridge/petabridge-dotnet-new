@@ -1,3 +1,6 @@
+#### 0.3.1 July 15 2018 ####
+Fixed a minor issue with `build.sh` not working correctly out of the box due to an unexpected parameter in `dotnet-install.sh`.
+
 #### 0.3.0 July 14 2018 ####
 This is a major update to the `Petabridge.Library` `dotnet new` template; most notably it enables .NET Core execution of performance tests using [NBench v1.2.1](https://github.com/petabridge/NBench#running-nbench-tests-with-dotnet-nbench) and the new `dotnet nbench` tool. In addition, we've fixed a number of issues related to DocFx output.
 
