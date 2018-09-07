@@ -11,7 +11,7 @@ NUGET_URL=https://dist.nuget.org/win-x86-commandline/v4.0.0/nuget.exe
 FAKE_VERSION=4.61.2
 FAKE_EXE=$TOOLS_DIR/FAKE/tools/FAKE.exe
 DOTNET_VERSION=2.0.0
-DOTNET_CHANNEL = "LTS";
+DOTNET_CHANNEL=LTS;
 DOTNET_INSTALLER_URL=https://raw.githubusercontent.com/dotnet/cli/v2.0.0/scripts/obtain/dotnet-install.sh
 
 # Define default arguments.
