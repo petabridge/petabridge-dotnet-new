@@ -88,6 +88,16 @@ if [ ! -f "$FAKE_EXE" ]; then
 fi
 
 ###########################################################################
+# INSTALL SignTool
+###########################################################################
+if [ ! -f "$SIGNTOOL_EXE" ]; then
+    "$SCRIPT_DIR/.dotnet/dotnet" tool install SignClient --version 1.0.82 --tool-path "$SIGNCLIENT_DIR"
+    if [ $? -ne 0 ]; then
+        echo "SignClient already installed."
+    fi
+fi
+
+###########################################################################
 # WORKAROUND FOR MONO
 ###########################################################################
 export FrameworkPathOverride=/usr/lib/mono/4.5/

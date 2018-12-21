@@ -20,7 +20,7 @@ let configuration = "Release"
 
 // Read release notes and version
 let buildNumber = environVarOrDefault "BUILD_NUMBER" "0"
-let preReleaseVersionSuffix = (if (not (buildNumber = "0")) then (buildNumber) else "") + "-beta"
+let preReleaseVersionSuffix = "-beta" + (if (not (buildNumber = "0")) then (buildNumber) else DateTime.UtcNow.Ticks.ToString())
 let versionSuffix = 
     match (getBuildParam "nugetprerelease") with
     | "dev" -> preReleaseVersionSuffix
@@ -82,7 +82,7 @@ Target "CreateNuget" (fun _ ->
                         Project =  project
                         Properties = ["Configuration", "Release"]
                         ReleaseNotes = releaseNotes.Notes |> String.concat "\n"
-                        Version = releaseVersion
+                        Version = [ releaseVersion; versionSuffix;] |> String.concat ""
                         Tags = tags |> String.concat " "
                         OutputPath = outputDir
                         WorkingDir = workingDir})

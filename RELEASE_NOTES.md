@@ -1,3 +1,12 @@
+#### 0.4.0 December 21 2018 ####
+* Upgraded all new projects to use .NET Core 2.1;
+* Migrated testing system to use XUnit 2.4.1 and the 15.9.0 version of the Microsoft Test SDK;
+* [Migrated all tests to execute via `dotnet test`](https://github.com/petabridge/petabridge-dotnet-new/pull/73), since `dotnet xunit` is now officially deprecated;
+* [Added code-signing for all NuGet packages via SignService](https://github.com/petabridge/petabridge-dotnet-new/issues/72); and
+* Improved the `nugetprerelease=dev` system such that it can now generate beta version numbers incrementally using the `DateTime.UtcNow.Ticks` value.
+
+For the [full set of changes in `Petabridge.Templates` v0.4.0, click here](https://github.com/petabridge/petabridge-dotnet-new/milestone/4).
+
 #### 0.3.1 September 07 2018 ####
 * Fixed a minor issue with `build.sh` not working correctly out of the box due to an unexpected parameter in `dotnet-install.sh`.
 * Upgraded to NBench v1.2.2 to avoid NuGet package downgrade warnings.
