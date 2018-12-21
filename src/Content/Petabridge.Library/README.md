@@ -50,3 +50,6 @@ If you add any new projects to the solution created with this template, be sure 
 ```
 <Import Project="..\common.props" />
 ```
+
+### Code Signing via SignService
+This project uses 

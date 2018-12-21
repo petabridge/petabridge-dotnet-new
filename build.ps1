@@ -128,6 +128,20 @@ if (!(Test-Path $DocfxExePath)) {
 }
 
 ###########################################################################
+# SignTool
+###########################################################################
+
+# Make sure the SignClient has been installed
+if (Get-Command signclient -ErrorAction SilentlyContinue) {
+    Write-Host "Found SignClient. Skipping install."
+}
+else{
+    $SignClientFolder = Join-Path $ToolPath "signclient"
+    Write-Host "SignClient not found. Installing to ... $SignClientFolder"
+    dotnet tool install SignClient --version 1.0.82 --tool-path "$SignClientFolder"
+}
+
+###########################################################################
 # RUN BUILD SCRIPT
 ###########################################################################
 
