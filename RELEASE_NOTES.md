@@ -1,3 +1,6 @@
+#### 0.4.0 December 21 2018 ####
+Version bump.
+
 #### 0.3.1 September 07 2018 ####
 * Fixed a minor issue with `build.sh` not working correctly out of the box due to an unexpected parameter in `dotnet-install.sh`.
 * Upgraded to NBench v1.2.2 to avoid NuGet package downgrade warnings.

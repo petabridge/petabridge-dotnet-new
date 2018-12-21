@@ -82,7 +82,7 @@ Target "CreateNuget" (fun _ ->
                         Project =  project
                         Properties = ["Configuration", "Release"]
                         ReleaseNotes = releaseNotes.Notes |> String.concat "\n"
-                        Version = releaseVersion
+                        Version = [ releaseVersion; versionSuffix;] |> String.concat "-"
                         Tags = tags |> String.concat " "
                         OutputPath = outputDir
                         WorkingDir = workingDir})
