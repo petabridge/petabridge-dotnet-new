@@ -6,12 +6,13 @@
 # Define directories.
 SCRIPT_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 TOOLS_DIR=$SCRIPT_DIR/tools
+SIGNCLIENT_DIR=$TOOLS_DIR/signclient
 NUGET_EXE=$TOOLS_DIR/nuget.exe
 NUGET_URL=https://dist.nuget.org/win-x86-commandline/v4.0.0/nuget.exe
 FAKE_VERSION=4.61.2
 FAKE_EXE=$TOOLS_DIR/FAKE/tools/FAKE.exe
-DOTNET_VERSION=2.0.0
-DOTNET_INSTALLER_URL=https://raw.githubusercontent.com/dotnet/cli/2.0.0/scripts/obtain/dotnet-install.sh
+DOTNET_VERSION=2.1.500
+DOTNET_INSTALLER_URL=https://raw.githubusercontent.com/dotnet/cli/v$DOTNET_VERSION/scripts/obtain/dotnet-install.sh
 # Define default arguments.
 TARGET="Default"
 CONFIGURATION="Release"
