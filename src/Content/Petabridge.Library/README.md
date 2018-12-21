@@ -50,3 +50,21 @@ If you add any new projects to the solution created with this template, be sure 
 ```
 <Import Project="..\common.props" />
 ```
+
+### Code Signing via SignService
+This project uses [SignService](https://github.com/onovotny/SignService) to code-sign NuGet packages prior to publication. The `build.cmd` and `build.sh` scripts will automatically download the `SignClient` needed to execute code signing locally on the build agent, but it's still your responsibility to set up the SignService server per the instructions at the linked repository.
+
+Once you've gone through the ropes of setting up a code-signing server, you'll need to set a few configuration options in your project in order to use the `SignClient`:
+
+* Add your Active Directory settings to [`appsettings.json`](appsettings.json) and
+* Pass in your signature information to the `signingName`, `signingDescription`, and `signingUrl` values inside `build.fsx`.
+
+Whenever you're ready to run code-signing on the NuGet packages published by `build.fsx`, execute the following command:
+
+```
+C:\> build.cmd nuget SignClientSecret={your secret} SignClientUser={your username}
+```
+
+This will invoke the `SignClient` and actually execute code signing against your `.nupkg` files prior to NuGet publication.
+
+If one of these two values isn't provided, the code signing stage will skip itself and simply produce unsigned NuGet code packages.
