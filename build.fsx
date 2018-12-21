@@ -12,8 +12,8 @@ open Fake.DocFxHelper
 // Information about the project for Nuget and Assembly info files
 let product = "Petabridge.Library"
 let authors = [ "Petabridge" ]
-let copyright = "Copyright Petabridge, LLC © 2015-2017"
-let company = "Petabridge, LLC"
+let copyright = "Copyright Petabridge © 2015-2018"
+let company = "Petabridge"
 let description = "dotnet new templates for professional OSS projects"
 let tags = ["template"; "dotnet new"; "Petabridge"; "DocFx"; "build"; "NBench"; "Akka";]
 let configuration = "Release"
