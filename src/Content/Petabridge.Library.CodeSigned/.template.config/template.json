@@ -1,0 +1,17 @@
+{
+  "author": "Petabridge",
+  "classifications": [ "Petabridge", "DocFx", "Tests" ],
+  "name": "Petabridge .NET Core Library w/ Code Signing",
+  "identity": "Petabridge.Library.CodeSigned", 
+  "description": "A professional .NET Core project setup including build scripts, documentation, unit tests, performance tests, and code signing for a class library project.",
+  "shortName": "pb-lib-signed",              
+  "groupIdentity": "Petabridge",
+  "tags": {
+    "language": "C#",                      
+    "type": "project"
+  },
+  "sourceName": "Petabridge.Library",       
+  "primaryOutputs": [ { "path": "Petabridge.Library.sln" } ],
+  "defaultName": "Library1",
+  "preferNameDirectory" : "true"
+}
