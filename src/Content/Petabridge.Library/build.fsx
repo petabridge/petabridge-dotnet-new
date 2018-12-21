@@ -40,6 +40,8 @@ let workingDir = output @@ "build"
 let nugetExe = FullName @"./tools/nuget.exe"
 
 Target "Clean" (fun _ ->
+    ActivateFinalTarget "KillCreatedProcesses"
+
     CleanDir output
     CleanDir outputTests
     CleanDir outputPerfTests
@@ -99,15 +101,16 @@ Target "RunTests" (fun _ ->
     let runSingleProject project =
         let arguments =
             match (hasTeamCity) with
-            | true -> (sprintf "xunit -c Release -nobuild -parallel none -teamcity -xml %s_xunit.xml" (outputTests @@ fileNameWithoutExt project))
-            | false -> (sprintf "xunit -c Release -nobuild -parallel none -xml %s_xunit.xml" (outputTests @@ fileNameWithoutExt project))
+            | true -> (sprintf "--no-build --logger:\"console;verbosity=normal\" --results-directory %s -- -parallel none -teamcity" (outputTests))
+            | false -> (sprintf "--no-build --logger:\"console;verbosity=normal\" --results-directory %s -- -parallel none" (outputTests))
 
-        let result = ExecProcess(fun info ->
-            info.FileName <- "dotnet"
-            info.WorkingDirectory <- (Directory.GetParent project).FullName
-            info.Arguments <- arguments) (TimeSpan.FromMinutes 30.0) 
-        
-        ResultHandling.failBuildIfXUnitReportedError TestRunnerErrorLevel.DontFailBuild result
+        DotNetCli.Test
+            (fun t -> 
+                { t with 
+                    Project = project
+                    Configuration = configuration
+                    AdditionalArgs = [arguments]
+                })
 
     projects |> Seq.iter (log)
     projects |> Seq.iter (runSingleProject)
@@ -205,6 +208,19 @@ Target "DocFx" (fun _ ->
 )
 
 //--------------------------------------------------------------------------------
+// Cleanup
+//--------------------------------------------------------------------------------
+
+FinalTarget "KillCreatedProcesses" (fun _ ->
+    log "Shutting down dotnet build-server"
+    let result = ExecProcess(fun info -> 
+            info.FileName <- "dotnet"
+            info.WorkingDirectory <- __SOURCE_DIRECTORY__
+            info.Arguments <- "build-server shutdown") (System.TimeSpan.FromMinutes 2.0)
+    if result <> 0 then failwithf "dotnet build-server shutdown failed"
+)
+
+//--------------------------------------------------------------------------------
 // Help 
 //--------------------------------------------------------------------------------
 
@@ -236,13 +252,14 @@ Target "Nuget" DoNothing
 "Clean" ==> "RestorePackages" ==> "AssemblyInfo" ==> "Build" ==> "BuildRelease"
 
 // tests dependencies
+"Clean" ==> "RestorePackages" ==> "Build" ==> "RunTests"
 
 // nuget dependencies
 "Clean" ==> "RestorePackages" ==> "Build" ==> "CreateNuget"
 "CreateNuget" ==> "PublishNuget" ==> "Nuget"
 
 // docs
-"BuildRelease" ==> "Docfx"
+"Clean" ==> "RestorePackages" ==> "BuildRelease" ==> "Docfx"
 
 // all
 "BuildRelease" ==> "All"
