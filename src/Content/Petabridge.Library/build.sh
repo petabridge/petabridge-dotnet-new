@@ -14,6 +14,8 @@ FAKE_EXE=$TOOLS_DIR/FAKE/tools/FAKE.exe
 DOTNET_VERSION=2.1.500
 DOTNET_INSTALLER_URL=https://raw.githubusercontent.com/dotnet/cli/v$DOTNET_VERSION/scripts/obtain/dotnet-install.sh
 DOTNET_CHANNEL=LTS;
+DOCFX_VERSION=2.40.5
+DOCFX_EXE=$TOOLS_DIR/docfx.console/tools/docfx.exe
 
 # Define default arguments.
 TARGET="Default"
@@ -86,6 +88,23 @@ fi
 # Make sure that Fake has been installed.
 if [ ! -f "$FAKE_EXE" ]; then
     echo "Could not find Fake.exe at '$FAKE_EXE'."
+    exit 1
+fi
+
+###########################################################################
+# INSTALL DOCFX
+###########################################################################
+if [ ! -f "$DOCFX_EXE" ]; then
+    mono "$NUGET_EXE" install docfx.console -ExcludeVersion -Version $DOCFX_VERSION -OutputDirectory "$TOOLS_DIR"
+    if [ $? -ne 0 ]; then
+        echo "An error occured while installing DocFx."
+        exit 1
+    fi
+fi
+
+# Make sure that DocFx has been installed.
+if [ ! -f "$DOCFX_EXE" ]; then
+    echo "Could not find docfx.exe at '$DOCFX_EXE'."
     exit 1
 fi
 
