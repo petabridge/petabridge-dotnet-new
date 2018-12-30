@@ -1,5 +1,6 @@
-#### 0.4.1 December 29 2018 ####
+#### 0.4.1 December 30 2018 ####
 * Fixed an issue with the `dotnet test` stage that caused it to prematurely fail, rather than run all the way to completion.
+* Added DocFx support to `build.sh` and bumped DocFx version to 2.40.5
 
 #### 0.4.0 December 21 2018 ####
 * Upgraded all new projects to use .NET Core 2.1;
