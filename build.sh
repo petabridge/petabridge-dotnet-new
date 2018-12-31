@@ -6,13 +6,16 @@
 # Define directories.
 SCRIPT_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 TOOLS_DIR=$SCRIPT_DIR/tools
+SIGNCLIENT_DIR=$TOOLS_DIR/signclient
 NUGET_EXE=$TOOLS_DIR/nuget.exe
 NUGET_URL=https://dist.nuget.org/win-x86-commandline/v4.0.0/nuget.exe
 FAKE_VERSION=4.61.2
 FAKE_EXE=$TOOLS_DIR/FAKE/tools/FAKE.exe
-DOTNET_VERSION=2.0.0
+DOTNET_VERSION=2.1.500
+DOTNET_INSTALLER_URL=https://raw.githubusercontent.com/dotnet/cli/v$DOTNET_VERSION/scripts/obtain/dotnet-install.sh
 DOTNET_CHANNEL=LTS;
-DOTNET_INSTALLER_URL=https://raw.githubusercontent.com/dotnet/cli/v2.0.0/scripts/obtain/dotnet-install.sh
+DOCFX_VERSION=2.40.5
+DOCFX_EXE=$TOOLS_DIR/docfx.console/tools/docfx.exe
 
 # Define default arguments.
 TARGET="Default"
@@ -55,6 +58,7 @@ export DOTNET_CLI_TELEMETRY_OPTOUT=1
 chmod -R 0755 ".dotnet"
 "$SCRIPT_DIR/.dotnet/dotnet" --info
 
+
 ###########################################################################
 # INSTALL NUGET
 ###########################################################################
@@ -88,6 +92,23 @@ if [ ! -f "$FAKE_EXE" ]; then
 fi
 
 ###########################################################################
+# INSTALL DOCFX
+###########################################################################
+if [ ! -f "$DOCFX_EXE" ]; then
+    mono "$NUGET_EXE" install docfx.console -ExcludeVersion -Version $DOCFX_VERSION -OutputDirectory "$TOOLS_DIR"
+    if [ $? -ne 0 ]; then
+        echo "An error occured while installing DocFx."
+        exit 1
+    fi
+fi
+
+# Make sure that DocFx has been installed.
+if [ ! -f "$DOCFX_EXE" ]; then
+    echo "Could not find docfx.exe at '$DOCFX_EXE'."
+    exit 1
+fi
+
+###########################################################################
 # INSTALL SignTool
 ###########################################################################
 if [ ! -f "$SIGNTOOL_EXE" ]; then
@@ -96,6 +117,7 @@ if [ ! -f "$SIGNTOOL_EXE" ]; then
         echo "SignClient already installed."
     fi
 fi
+
 
 ###########################################################################
 # WORKAROUND FOR MONO
