@@ -1,3 +1,6 @@
+#### 0.4.2 December 31 2018 ####
+* Fixed a bug with the `RunTests` step that caused `build.fsx` to fail to execute.
+
 #### 0.4.1 December 30 2018 ####
 * Fixed an issue with the `dotnet test` stage that caused it to prematurely fail, rather than run all the way to completion.
 * Added DocFx support to `build.sh` and bumped DocFx version to 2.40.5
