@@ -103,7 +103,7 @@ Target "RunTests" (fun _ ->
         | true -> !! "./src/**/*.Tests.csproj"
         | _ -> !! "./src/**/*.Tests.csproj" // if you need to filter specs for Linux vs. Windows, do it here
 
-     let runSingleProject project =
+    let runSingleProject project =
         let arguments =
             match (hasTeamCity) with
             | true -> (sprintf "test -c Release --no-build --logger:\"console;verbosity=normal\" --results-directory %s -- -parallel none -teamcity" (outputTests))
