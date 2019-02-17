@@ -39,11 +39,6 @@ let outputTests = __SOURCE_DIRECTORY__ @@ "TestResults"
 let outputPerfTests = __SOURCE_DIRECTORY__ @@ "PerfResults"
 let outputNuGet = output @@ "nuget"
 
-// Copied from original NugetCreate target
-let nugetDir = output @@ "nuget"
-let workingDir = output @@ "build"
-let nugetExe = FullName @"./tools/nuget.exe"
-
 Target "Clean" (fun _ ->
     ActivateFinalTarget "KillCreatedProcesses"
 
@@ -114,7 +109,7 @@ Target "RunTests" (fun _ ->
             info.WorkingDirectory <- (Directory.GetParent project).FullName
             info.Arguments <- arguments) (TimeSpan.FromMinutes 30.0) 
         
-        ResultHandling.failBuildIfXUnitReportedError TestRunnerErrorLevel.DontFailBuild result  
+        ResultHandling.failBuildIfXUnitReportedError TestRunnerErrorLevel.Error result  
 
     projects |> Seq.iter (log)
     projects |> Seq.iter (runSingleProject)
@@ -138,7 +133,7 @@ Target "NBench" <| fun _ ->
             info.WorkingDirectory <- (Directory.GetParent project).FullName
             info.Arguments <- arguments) (TimeSpan.FromMinutes 30.0) 
         
-        ResultHandling.failBuildIfXUnitReportedError TestRunnerErrorLevel.DontFailBuild result
+        ResultHandling.failBuildIfXUnitReportedError TestRunnerErrorLevel.Error result
     
     projects |> Seq.iter runSingleProject
 
