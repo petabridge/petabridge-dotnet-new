@@ -1,3 +1,6 @@
+#### 0.4.3 February 17 2019 ####
+* [Fixed: Need to return non-zero exit code when NBench or XUnit tests fail](https://github.com/petabridge/petabridge-dotnet-new/issues/86).
+
 #### 0.4.2 December 31 2018 ####
 * Fixed a bug with the `RunTests` step that caused `build.fsx` to fail to execute.
 
