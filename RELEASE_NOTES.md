@@ -1,60 +1,8 @@
-#### 0.4.3 February 17 2019 ####
-* [Fixed: Need to return non-zero exit code when NBench or XUnit tests fail](https://github.com/petabridge/petabridge-dotnet-new/issues/86).
+#### 0.5.0 March 07 2019 ####
+`Petabridge.Templates` now comes with default [Azure DevOps Pipelines YAML files](https://docs.microsoft.com/en-us/azure/devops/pipelines/yaml-schema), found in the `/build-system` folder in each new project created via the `pb-lib` `dotnet new` template.
 
-#### 0.4.2 December 31 2018 ####
-* Fixed a bug with the `RunTests` step that caused `build.fsx` to fail to execute.
+There are three files total:
 
-#### 0.4.1 December 30 2018 ####
-* Fixed an issue with the `dotnet test` stage that caused it to prematurely fail, rather than run all the way to completion.
-* Added DocFx support to `build.sh` and bumped DocFx version to 2.40.5
-
-#### 0.4.0 December 21 2018 ####
-* Upgraded all new projects to use .NET Core 2.1;
-* Migrated testing system to use XUnit 2.4.1 and the 15.9.0 version of the Microsoft Test SDK;
-* [Migrated all tests to execute via `dotnet test`](https://github.com/petabridge/petabridge-dotnet-new/pull/73), since `dotnet xunit` is now officially deprecated;
-* [Added code-signing for all NuGet packages via SignService](https://github.com/petabridge/petabridge-dotnet-new/issues/72); and
-* Improved the `nugetprerelease=dev` system such that it can now generate beta version numbers incrementally using the `DateTime.UtcNow.Ticks` value.
-
-For the [full set of changes in `Petabridge.Templates` v0.4.0, click here](https://github.com/petabridge/petabridge-dotnet-new/milestone/4).
-
-#### 0.3.1 September 07 2018 ####
-* Fixed a minor issue with `build.sh` not working correctly out of the box due to an unexpected parameter in `dotnet-install.sh`.
-* Upgraded to NBench v1.2.2 to avoid NuGet package downgrade warnings.
-
-#### 0.3.0 July 14 2018 ####
-This is a major update to the `Petabridge.Library` `dotnet new` template; most notably it enables .NET Core execution of performance tests using [NBench v1.2.1](https://github.com/petabridge/NBench#running-nbench-tests-with-dotnet-nbench) and the new `dotnet nbench` tool. In addition, we've fixed a number of issues related to DocFx output.
-
-* [Update template to support NBench for .NET Standard and .NET Core](https://github.com/petabridge/petabridge-dotnet-new/issues/24) - also automatically runs NBench now as part of the `./build.cmd all` or `./build.sh all` invocations.
-* [DocFx: fix searchbar on IIS](https://github.com/petabridge/petabridge-dotnet-new/issues/54)
-* [DocFx: add support for sitemaps](https://github.com/petabridge/petabridge-dotnet-new/issues/47)
-* [DocFx: Bug: API documentation not generated correctly out of the box for .NET Standard 2.0](https://github.com/petabridge/petabridge-dotnet-new/issues/36)
-* [Bug: build.sh references incorrect URL for dotnet-install.sh](https://github.com/petabridge/petabridge-dotnet-new/issues/51)
-
-You can [see the full list of changes for this update here](https://github.com/petabridge/petabridge-dotnet-new/milestone/2).
-
-#### 0.2.1 April 19 2018 ####
-* [Disable NBench by default](https://github.com/petabridge/petabridge-dotnet-new/pull/41)
-* [Add default description tag to projects](https://github.com/petabridge/petabridge-dotnet-new/issues/33)
-* [Add reference to xunit.runner.visualstudio in test projects](https://github.com/petabridge/petabridge-dotnet-new/issues/32)
-* [Change build system to build the entire solution, rather than iterating over individual projects](https://github.com/petabridge/petabridge-dotnet-new/issues/31) - significantly speeds up build times.
-
-#### 0.2.0 January 17 2018 ####
-* [Upgrade template to .NET Standard 2.0](https://github.com/petabridge/petabridge-dotnet-new/issues/28).
-* [See the full v0.2.0 change set here](https://github.com/petabridge/petabridge-dotnet-new/milestone/1).
-
-#### 0.1.3 October 18 2017 ####
-* [`build.fsx` can not automatically detect TeamCity and toggle TC formatting on and off for XUnit2 test runs](https://github.com/petabridge/petabridge-dotnet-new/pull/19).
-* [Updated XUnit2 target version to 2.3.0 stable](https://github.com/petabridge/petabridge-dotnet-new/pull/20).
-
-#### 0.1.2 August 19 2017 ####
-* Added .gitignore file to the Petabridge.Library template
-* Added a sample Apache 2 `LICENSE` file to the template
-* Added `AssemblyInfo` stage in order to sync `RELEASE_NOTES.md` with `common.props`; now you only need to update the assembly version of your projects inside `RELEASE_NOTES.md`.
-
-#### 0.1.1 August 15 2017 ####
-Added a `description` field to the Petabridge.Library template.
-
-#### 0.1.0 August 15 2017 ####
-First release of `Petabridge.Templates`, and ships with the following project templates:
-
-* `Petabridge.Library` - creates a library project complete with unit tests, performance tests, FAKE build system, and DocFx documentation.
+* `linux-pr-validation.yaml` runs the `build.sh all` command for pull requests on hosted Ubuntu 16.04 VMs.
+* `windows-pr-validation.yaml` runs the `build.cmd all` command for pull requested on hosted Windows Server 2016 VMs.
+* `windows-release.yaml` runs the full code signing and publication package for your project, plus it creates an automatic release on Github afterwards including all of the signed build artifacts.
