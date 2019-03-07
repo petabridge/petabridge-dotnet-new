@@ -9,11 +9,11 @@ variables:
   - group: signingSecrets #create this group with SECRET variables `signingUsername` and `signingPassword`
   - group: nugetKeys #create this group with SECRET variables `nugetKey`
   - name: githubConnectionName
-    value: yourConnection #replace this
+    value: Petabridge
   - name: projectName
-    value: yourProjectName #replace this
+    value: Petabridge.Templates 
   - name: githubRepositoryName
-    value: yourOrganization/yourRepo #replace this
+    value: petabridge/petabridge-dotnet-new
 
 steps:
 - task: BatchScript@1
