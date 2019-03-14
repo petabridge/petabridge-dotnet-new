@@ -1,4 +1,4 @@
-#### 0.5.1 March 07 2019 ####
+#### 0.5.1 March 14 2019 ####
 **Bugfix Release for Petabridge.Templates v0.5.0**
 
 * Fixed Azure Pipelines YAML - now properly supports build triggers and test reporting.
