@@ -54,14 +54,6 @@ Target "AssemblyInfo" (fun _ ->
     XmlPokeInnerText "./src/common.props" "//Project/PropertyGroup/PackageReleaseNotes" (releaseNotes.Notes |> String.concat "\n")
 )
 
-Target "RestorePackages" (fun _ ->
-    DotNetCli.Restore
-        (fun p -> 
-            { p with
-                Project = solutionFile
-                NoCache = false })
-)
-
 Target "Build" (fun _ ->          
     DotNetCli.Build
         (fun p -> 
@@ -101,8 +93,8 @@ Target "RunTests" (fun _ ->
     let runSingleProject project =
         let arguments =
             match (hasTeamCity) with
-            | true -> (sprintf "test -c Release --no-build --logger:\"console;verbosity=normal\" --results-directory %s -- -parallel none -teamcity" (outputTests))
-            | false -> (sprintf "test -c Release --no-build --logger:\"console;verbosity=normal\" --results-directory %s -- -parallel none" (outputTests))
+            | true -> (sprintf "test -c Release --no-build --logger:trx --logger:\"console;verbosity=normal\" --results-directory %s -- -parallel none -teamcity" (outputTests))
+            | false -> (sprintf "test -c Release --no-build --logger:trx --logger:\"console;verbosity=normal\" --results-directory %s -- -parallel none" (outputTests))
 
         let result = ExecProcess(fun info ->
             info.FileName <- "dotnet"
@@ -297,13 +289,13 @@ Target "All" DoNothing
 Target "Nuget" DoNothing
 
 // build dependencies
-"Clean" ==> "RestorePackages" ==> "AssemblyInfo" ==> "Build" ==> "BuildRelease"
+"Clean" ==> "AssemblyInfo" ==> "Build" ==> "BuildRelease"
 
 // tests dependencies
-"Clean" ==> "RestorePackages" ==> "Build" ==> "RunTests"
+"Build" ==> "RunTests"
 
 // nuget dependencies
-"Clean" ==> "RestorePackages" ==> "Build" ==> "CreateNuget"
+"Clean" ==> "Build" ==> "CreateNuget"
 "CreateNuget" ==> "SignPackages" ==> "PublishNuget" ==> "Nuget"
 
 // docs
