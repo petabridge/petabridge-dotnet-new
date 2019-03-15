@@ -299,7 +299,7 @@ Target "Nuget" DoNothing
 "CreateNuget" ==> "SignPackages" ==> "PublishNuget" ==> "Nuget"
 
 // docs
-"Clean" ==> "RestorePackages" ==> "BuildRelease" ==> "Docfx"
+"Clean" ==> "BuildRelease" ==> "Docfx"
 
 // all
 "BuildRelease" ==> "All"
