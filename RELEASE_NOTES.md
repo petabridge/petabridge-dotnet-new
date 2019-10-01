@@ -1,6 +1,6 @@
-#### 0.5.3 August 05 2019 ####
-**Bugfix Release for Petabridge.Templates v0.5.0**
+#### 1.0.0 October 01 2019 ####
 
-* [Disabled PR validation for release builds](https://github.com/petabridge/petabridge-dotnet-new/issues/106).
-* [Added nightly build template](https://github.com/petabridge/petabridge-dotnet-new/issues/107).
-* [Always bundle NuGet packages as artifacts](https://github.com/petabridge/petabridge-dotnet-new/issues/105).
+This is a major release of Petabridge.Templates, which includes the following changes:
+
+1. All templates now run on .NET Core 3.0;
+2. Introduced the new `Petabridge.App` template as part of this package, which includes the ability to automatically create an Akka.Cluster application running inside a .NET Core 3.0 console application. Also includes Docker build support out of the box.
