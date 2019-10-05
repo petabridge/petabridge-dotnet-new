@@ -58,6 +58,11 @@ Target "Clean" (fun _ ->
     CleanDirs !! "./**/obj"
 )
 
+Target "AssemblyInfo" (fun _ ->
+    XmlPokeInnerText "./src/Petabridge.Templates.csproj" "//Project/PropertyGroup/VersionPrefix" releaseNotes.AssemblyVersion    
+    XmlPokeInnerText "./src/Petabridge.Templates.csproj" "//Project/PropertyGroup/PackageReleaseNotes" (releaseNotes.Notes |> String.concat "\n")
+)
+
 //--------------------------------------------------------------------------------
 // Code signing targets
 //--------------------------------------------------------------------------------
@@ -113,37 +118,20 @@ Target "SignPackages" (fun _ ->
 let overrideVersionSuffix (project:string) =
     match project with
     | _ -> versionSuffix // add additional matches to publish different versions for different projects in solution
+
 Target "CreateNuget" (fun _ -> 
-    ensureDirectory outputNuGet   
-    let nuspecFiles = !! "src/**/*.nuspec" 
+    let projects = !! "src/Petabridge.Templates.csproj" 
+    let runSingleProject project =
+        DotNetCli.Pack
+            (fun p -> 
+                { p with
+                    Project = project
+                    Configuration = configuration
+                    AdditionalArgs = ["--include-symbols --no-build"]
+                    VersionSuffix = overrideVersionSuffix project
+                    OutputPath = outputNuGet })
 
-    for nuspec in nuspecFiles do
-        printfn "Creating nuget packages for %s" nuspec
-        CleanDir workingDir
-        
-        let project = Path.GetFileNameWithoutExtension nuspec 
-        let projectDir = Path.GetDirectoryName nuspec
-        let releaseVersion = releaseNotes.NugetVersion
-
-        let pack outputDir =
-            NuGetHelper.NuGet
-                (fun p ->
-                    { p with
-                        Description = description
-                        Authors = authors
-                        Copyright = copyright
-                        Project =  project
-                        Properties = ["Configuration", "Release"]
-                        ReleaseNotes = releaseNotes.Notes |> String.concat "\n"
-                        Version = [ releaseVersion; versionSuffix;] |> String.concat ""
-                        Tags = tags |> String.concat " "
-                        OutputPath = outputDir
-                        WorkingDir = workingDir})
-                nuspec
-
-        CopyDir workingDir projectDir allFiles
-
-        pack outputNuGet 
+    projects |> Seq.iter (runSingleProject)
 )
 
 Target "PublishNuget" (fun _ ->
@@ -202,7 +190,7 @@ Target "All" DoNothing
 Target "Nuget" DoNothing
 
 // nuget dependencies
-"Clean" ==> "CreateNuget"
+"Clean" ==> "AssemblyInfo" ==> "CreateNuget"
 "CreateNuget" ==> "SignPackages" ==> "PublishNuget" ==> "Nuget"
 // docs
 //"BuildRelease" ==> "Docfx"
