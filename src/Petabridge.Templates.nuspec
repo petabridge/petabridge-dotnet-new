@@ -20,7 +20,9 @@
         </packageTypes>
         <contentFiles>
              <!-- Copy directory structure -->
-           <files include="templates\**\*" copyToOutput="true" flatten="false"/>
+           <files include="templates\Petabridge.App\*" target="templates\Petabridge.App" copyToOutput="true" flatten="false"/>
+           <files include="templates\Petabridge.App.Web\*" target="templates\Petabridge.App.Web" copyToOutput="true" flatten="false"/>
+           <files include="templates\Petabridge.Library\*" target="templates\Petabridge.Library" copyToOutput="true" flatten="false"/>
         </contentFiles>
     </metadata>
 </package>
