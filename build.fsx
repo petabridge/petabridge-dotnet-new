@@ -127,7 +127,6 @@ Target "CreateNuget" (fun _ ->
                 { p with
                     Project = project
                     Configuration = configuration
-                    AdditionalArgs = ["--include-symbols --no-build"]
                     VersionSuffix = overrideVersionSuffix project
                     OutputPath = outputNuGet })
 
