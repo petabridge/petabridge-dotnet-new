@@ -59,7 +59,7 @@ Target "Clean" (fun _ ->
 )
 
 Target "AssemblyInfo" (fun _ ->
-    XmlPokeInnerText "./src/Petabridge.Templates.csproj" "//Project/PropertyGroup/VersionPrefix" releaseNotes.AssemblyVersion    
+    XmlPokeInnerText "./src/Petabridge.Templates.csproj" "//Project/PropertyGroup/PackageVersion" releaseNotes.AssemblyVersion    
     XmlPokeInnerText "./src/Petabridge.Templates.csproj" "//Project/PropertyGroup/PackageReleaseNotes" (releaseNotes.Notes |> String.concat "\n")
 )
 
