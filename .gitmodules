@@ -4,3 +4,6 @@
 [submodule "src/Content/Petabridge.App"]
 	path = src/Content/Petabridge.App
 	url = https://github.com/petabridge/Petabridge.App.git
+[submodule "src/Content/Petabridge.App.Web"]
+	path = src/Content/Petabridge.App.Web
+	url = https://github.com/petabridge/Petabridge.App.Web.git
