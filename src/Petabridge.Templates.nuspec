@@ -19,7 +19,8 @@
             <packageType name="Template" />
         </packageTypes>
         <contentFiles>
-           <files include="templates\**\*"/>
+             <!-- Copy directory structure -->
+           <files include="templates\**\*" copyToOutput="true" flatten="false"/>
         </contentFiles>
     </metadata>
 </package>
