@@ -1,9 +1,9 @@
-[submodule "src/Content/Petabridge.Library"]
-	path = src/Content/Petabridge.Library
+[submodule "src/templates/Petabridge.Library"]
+	path = src/templates/Petabridge.Library
 	url = https://github.com/petabridge/Petabridge.Library.git
-[submodule "src/Content/Petabridge.App"]
-	path = src/Content/Petabridge.App
+[submodule "src/templates/Petabridge.App"]
+	path = src/templates/Petabridge.App
 	url = https://github.com/petabridge/Petabridge.App.git
-[submodule "src/Content/Petabridge.App.Web"]
-	path = src/Content/Petabridge.App.Web
+[submodule "src/templates/Petabridge.App.Web"]
+	path = src/templates/Petabridge.App.Web
 	url = https://github.com/petabridge/Petabridge.App.Web.git

@@ -19,7 +19,7 @@
             <packageType name="Template" />
         </packageTypes>
         <contentFiles>
-             <file src="Content\**\*"/>
+             <file src="templates\**\*"/>
         </contentFiles>
     </metadata>
 </package>
