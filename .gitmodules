@@ -5,5 +5,5 @@
 	path = src/templates/Petabridge.App
 	url = https://github.com/petabridge/Petabridge.App.git
 [submodule "src/Content/Petabridge.App.Web"]
-	path = src/templates/Petabridge.Web
+	path = src/templates/Petabridge.WebApp
 	url = https://github.com/petabridge/Petabridge.App.Web.git
