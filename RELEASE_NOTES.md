@@ -1,9 +1,9 @@
-#### 1.0.1 October 05 2019 ####
+#### 1.0.2 October 31 2019 ####
 
-This is a major release of Petabridge.Templates, which includes the following changes:
+This release fixes issues with [only one of the three templates in `Petabridge.Templates` being accessible during `dotnet new`](https://github.com/petabridge/petabridge-dotnet-new/issues/127).
 
-1. All templates now run on .NET Core 3.0;
-2. Introduced the new `Petabridge.App` template as part of this package, which includes the ability to automatically create an Akka.Cluster application running inside a .NET Core 3.0 console application. Also includes Docker build support out of the box.
-3. Introduced the new `Petabridge.App.Web` template as part of this package, which includes the ability to automatically create an Akka.Cluster application running inside an ASP.NET Core 3.0 web application. Also includes Docker build support out of the box.
+You can now use the following three templates:
 
-Includes fixes for missing templates in v1.0.0.
+* `dotnet new pb-lib` - creates a .NET Standard 2.0 library with a corresponding unit test project, documentation, and build system.
+* `dotnet new pb-akka-cluster` - creates a headless .NET Core 3.0 service that includes full [Akka.NET](https://getakka.net/) clustering support, Docker support, documentation, and build systems.
+* `dotnet new pb-akka-web` - does the same as `pb-akka-cluster`, but hosts [Akka.NET](https://getakka.net/) inside an ASP.NET Core 3.0 simple web application.
