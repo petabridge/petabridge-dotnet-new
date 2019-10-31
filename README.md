@@ -46,7 +46,10 @@ The following templates are installed as part of your `Petabridge.Templates` ins
 
 |    Template Name   | Short Name | Description                                                                                                                                   |
 |:------------------:|------------|-----------------------------------------------------------------------------------------------------------------------------------------------|
-| [Petabridge.Library](src/Content/Petabridge.Library/README.md) | pb-lib     | A professional .NET Core project setup including build scripts, documentation, unit tests, and performance tests for a class library project. |
+| [Petabridge.Library](https://github.com/petabridge/Petabridge.Library/) | pb-lib     | A professional .NET Core project setup including build scripts, documentation, unit tests, and performance tests for a class library project. |
+| [Petabridge.App](https://github.com/petabridge/Petabridge.App/) | pb-akka-cluster     | Creates a headless .NET Core 3.0 service that includes full [Akka.NET](https://getakka.net/) clustering support, Docker support, documentation, and build systems. |
+| [Petabridge.App.Web](https://github.com/petabridge/Petabridge.App.Web) | pb-akka-web     | Does the same as `pb-akka-cluster`, but hosts [Akka.NET](https://getakka.net/) inside an ASP.NET Core 3.0 simple web application. |
+
 
 You can read more about how these templates work by clicking on their titles and reading the `README.md` for each individual project.
 
@@ -106,4 +109,4 @@ We accept pull requests! Please let us know what we can do to make these templat
 Petabridge provides [Akka.NET](http://getakka.net/) consulting, training, and support including advanced training in [Akka.Remote](https://petabridge.com/training/akka-remoting/), [Akka.Cluster](https://petabridge.com/training/akka-clustering/), and [Akka.NET Design Patterns](https://petabridge.com/training/akka-design-patterns/)!
 
 ---
-Copyright 2015 - 2018 Petabridge® All rights reserved.
+Copyright 2015 - 2019 Petabridge® All rights reserved.
