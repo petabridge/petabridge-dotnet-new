@@ -1,14 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <PackageType>Template</PackageType>
-    <PackageVersion>1.0.2</PackageVersion>
+    <PackageVersion>1.0.3</PackageVersion>
     <PackageId>Petabridge.Templates</PackageId>
     <Title>Petabridge.Templates</Title>
     <Authors>Petabridge</Authors>
     <Description>Professional .NET Core templates complete with CI, Docs, and more. Supports library, Akka.NET, and ASP.NET Core application types.</Description>
     <PackageTags>dotnet-new;templates;petabridge;akka;</PackageTags>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <PackageReleaseNotes>This release fixes issues with [only one of the three templates in `Petabridge.Templates` being accessible during `dotnet new`](https://github.com/petabridge/petabridge-dotnet-new/issues/127).
+    <PackageReleaseNotes>Second and final attempt at fixing issue: [only one of the three templates in `Petabridge.Templates` being accessible during `dotnet new`](https://github.com/petabridge/petabridge-dotnet-new/issues/127).
 You can now use the following three templates:
 `dotnet new pb-lib` - creates a .NET Standard 2.0 library with a corresponding unit test project, documentation, and build system.
 `dotnet new pb-akka-cluster` - creates a headless .NET Core 3.0 service that includes full [Akka.NET](https://getakka.net/) clustering support, Docker support, documentation, and build systems.
