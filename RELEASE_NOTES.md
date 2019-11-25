@@ -1,6 +1,6 @@
-#### 1.0.2 October 31 2019 ####
+#### 1.0.3 November 25 2019 ####
 
-This release fixes issues with [only one of the three templates in `Petabridge.Templates` being accessible during `dotnet new`](https://github.com/petabridge/petabridge-dotnet-new/issues/127).
+Second and final attempt at fixing issue: [only one of the three templates in `Petabridge.Templates` being accessible during `dotnet new`](https://github.com/petabridge/petabridge-dotnet-new/issues/127).
 
 You can now use the following three templates:
 
