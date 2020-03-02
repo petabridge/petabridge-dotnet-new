@@ -1,4 +1,6 @@
-#### 1.0.5 January 30 2020 ####
+#### 1.1.0 March 02 2020 ####
 
-- Upgraded dependencies of all templates
-- Added SourceLink and NuGet symbol package support to `pb-lib`
+- Upgraded dependencies of all templates;
+- Upgraded all templates to .NET Core 3.1;
+- Added NBench 2.0 support to `pb-lib` template;
+- Updated README documentation to accurately reflect latest content of all templates.
