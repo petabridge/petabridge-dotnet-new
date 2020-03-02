@@ -20,7 +20,7 @@
         </packageTypes>
         <contentFiles>
              <!-- Copy directory structure -->
-           <files include="templates\**\*" copyToOutput="true" exclude=".git" flatten="false"/>
+           <files include="templates\**\*" copyToOutput="true" exclude="templates\**\.git" flatten="false"/>
         </contentFiles>
     </metadata>
 </package>
