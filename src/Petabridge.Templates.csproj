@@ -1,6 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <PackageType>Template</PackageType>
+	<PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageVersion>1.1.0</PackageVersion>
     <PackageId>Petabridge.Templates</PackageId>
     <Title>Petabridge.Templates</Title>
@@ -17,6 +18,7 @@
     <ContentTargetFolders>content</ContentTargetFolders>
   </PropertyGroup>
   <ItemGroup>
+    <None Include="..\README.md" Pack="true" PackagePath="\" />
     <Content Include="templates\**\*" Exclude="templates\**\bin\**;templates\**\obj\**" />
     <Compile Remove="**\*" />
   </ItemGroup>
