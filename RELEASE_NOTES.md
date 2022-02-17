@@ -4,6 +4,7 @@
 - Upgraded [pb-lib](https://github.com/petabridge/Petabridge.Library/), [`pb-akka-cluster`](https://github.com/petabridge/Petabridge.App) and [`pb-akka-web`](https://github.com/petabridge/Petabridge.App.Web) to all use .NET 6
 - Replaced `common.props` with `Directory.Build.props`
 - Git versioning with [GitVersion](https://gitversion.net/)
+- Added README to NuGet Package
 
 #### 1.2.0 April 15 2021 ####
 
