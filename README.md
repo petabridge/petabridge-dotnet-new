@@ -22,8 +22,10 @@ This will download the latest available [Petabridge.Templates package from NuGet
 After the installation process is complete, you'll see all of the templates included in the Petabridge.Templates package listed in your set of available templates if you execute the `dotnet new -l` command:
 
 ```
-Templates                         					Short Name      	Language     Tags
------------------------------------------------------------------------------------------------------------
+Template Name                                       Short Name           Language    Tags
+--------------------------------------------------  -------------------  ----------  --------------------------
+Class Library                                       classlib             [C#],F#,VB  Common/Library
+Console App                                         console              [C#],F#,VB  Common/Console
 Petabridge .NET Core Library                        pb-lib               [C#]        Petabridge/DocFx/Tests
 Petabridge Akka.Cluster Starter App                 pb-akka-cluster      [C#]        Petabridge/DocFx/Tests
 Petabridge ASP.NET Core + Akka.Cluster Starter App  pb-akka-web          [C#]        Petabridge/DocFx/Tests
