@@ -22,11 +22,11 @@ This will download the latest available [Petabridge.Templates package from NuGet
 After the installation process is complete, you'll see all of the templates included in the Petabridge.Templates package listed in your set of available templates if you execute the `dotnet new -l` command:
 
 ```
-Templates                         							Short Name      		Language      Tags
-------------------------------------------------------------------------------------------------------------------------
-Petabridge .NET Core Library      							pb-lib          		[C#]          Petabridge/DocFx/Tests
-Petabridge Akka.Cluster Starter App         				pb-akka-cluster      	[C#]          Petabridge/DocFx/Tests
-Petabridge ASP.NET Core + Akka.Cluster Starter App  		pb-akka-web             [C#]          Petabridge/DocFx/Tests
+Templates                         					Short Name      	Language     Tags
+-----------------------------------------------------------------------------------------------------------
+Petabridge .NET Core Library                        pb-lib               [C#]        Petabridge/DocFx/Tests
+Petabridge Akka.Cluster Starter App                 pb-akka-cluster      [C#]        Petabridge/DocFx/Tests
+Petabridge ASP.NET Core + Akka.Cluster Starter App  pb-akka-web          [C#]        Petabridge/DocFx/Tests
 ```
 
 To uninstall the package, use the following command:
