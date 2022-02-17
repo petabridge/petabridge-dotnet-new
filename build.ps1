@@ -98,18 +98,19 @@ if (!(Test-Path $DocfxExePath)) {
     }
 }
 
+
 ###########################################################################
-# Incrementalist
+# SignTool
 ###########################################################################
 
-# Make sure the Incrementalist has been installed
-if (Get-Command incrementalist -ErrorAction SilentlyContinue) {
-    Write-Host "Found Incrementalist. Skipping install."
+# Make sure the SignClient has been installed
+if (Get-Command signclient -ErrorAction SilentlyContinue) {
+    Write-Host "Found SignClient. Skipping install."
 }
 else{
-    $IncrementalistFolder = Join-Path $ToolPath "incrementalist"
-    Write-Host "Incrementalist not found. Installing to ... $IncrementalistFolder"
-    dotnet tool install Incrementalist.Cmd --version $IncrementalistVersion --tool-path "$IncrementalistFolder"
+    $SignClientFolder = Join-Path $ToolPath "signclient"
+    Write-Host "SignClient not found. Installing to ... $SignClientFolder"
+    dotnet tool install SignClient --version 1.3.155 --tool-path "$SignClientFolder"
 }
 
 ###########################################################################
