@@ -1,22 +1,24 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <PackageType>Template</PackageType>
-    <PackageVersion>1.1.0</PackageVersion>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageVersion>2.0.0</PackageVersion>
     <PackageId>Petabridge.Templates</PackageId>
     <Title>Petabridge.Templates</Title>
     <Authors>Petabridge</Authors>
     <Description>Professional .NET Core templates complete with CI, Docs, and more. Supports library, Akka.NET, and ASP.NET Core application types.</Description>
     <PackageTags>dotnet-new;templates;petabridge;akka;</PackageTags>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <PackageReleaseNotes>- Upgraded dependencies of all templates;
-- Upgraded all templates to .NET Core 3.1;
-- Added NBench 2.0 support to `pb-lib` template;
-- Updated README documentation to accurately reflect latest content of all templates.</PackageReleaseNotes>
+    <PackageReleaseNotes>- Switched build automation system from FAKE to [NUKE](https://nuke.build/)
+- Upgraded [pb-lib](https://github.com/petabridge/Petabridge.Library/), [`pb-akka-cluster`](https://github.com/petabridge/Petabridge.App) and [`pb-akka-web`](https://github.com/petabridge/Petabridge.App.Web) to all use .NET 6
+- Replaced `common.props` with `Directory.Build.props`
+- Git versioning with [GitVersion](https://gitversion.net/)</PackageReleaseNotes>
     <IncludeContentInPack>true</IncludeContentInPack>
     <IncludeBuildOutput>false</IncludeBuildOutput>
     <ContentTargetFolders>content</ContentTargetFolders>
   </PropertyGroup>
   <ItemGroup>
+    <None Include="..\README.md" Pack="true" PackagePath="\" />
     <Content Include="templates\**\*" Exclude="templates\**\bin\**;templates\**\obj\**" />
     <Compile Remove="**\*" />
   </ItemGroup>
