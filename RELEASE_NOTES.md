@@ -1,4 +1,9 @@
-#### 2.0.0 February 21 2022 ####
+#### 2.0.1 February 18 2022 ####
+
+- Fix missing `.gitignore` file - set `NoDefaultExcludes` to `true`.
+
+
+#### 2.0.0 February 17 2022 ####
 
 - Switched build automation system from FAKE to [NUKE](https://nuke.build/)
 - Upgraded [pb-lib](https://github.com/petabridge/Petabridge.Library/), [`pb-akka-cluster`](https://github.com/petabridge/Petabridge.App) and [`pb-akka-web`](https://github.com/petabridge/Petabridge.App.Web) to all use .NET 6
