@@ -14,7 +14,7 @@ The goal of this project is provide templates for creating professional-quality 
 To use these templates, execute the following command on the `dotnet` CLI:
 
 ```
-C:\> dotnet new -i "Petabridge.Templates::*"
+dotnet new -i "Petabridge.Templates::*"
 ```
 
 This will download the latest available [Petabridge.Templates package from NuGet](https://www.nuget.org/packages/Petabridge.Templates) and install it into your CLI.
