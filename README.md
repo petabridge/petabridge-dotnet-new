@@ -34,7 +34,7 @@ Petabridge ASP.NET Core + Akka.Cluster Starter App  pb-akka-web          [C#]   
 To uninstall the package, use the following command:
 
 ```
-C:\> dotnet new -u Petabridge.Templates
+dotnet new -u Petabridge.Templates
 ```
 
 ### Available Templates
@@ -52,7 +52,7 @@ You can read more about how these templates work by clicking on their titles and
 To use one of these templates, you can use the `dotnet new` command followed by the name or shortname.
 
 ```
-C:\> dotnet new pb-lib [-n name] [other arguments]
+dotnet new pb-lib [-n name] [other arguments]
 ```
 
 So for instance, if I execute `dotnet new pb-lib -n "MyProject"` the following output will appear in my working directory:
@@ -64,8 +64,7 @@ D:\MyProject\build.ps1
 D:\MyProject\build.sh
 D:\MyProject\MyProject.sln
 D:\MyProject\README.md
-D:\MyProject\CHANGELOG.md
-D:\MyProject\gitversion.yml
+D:\MyProject\RELEASE_NOTES.md
 D:\MyProject\build
 D:\MyProject\build\_build.csproj
 D:\MyProject\build\Build.CI.GitHubActions.cs
