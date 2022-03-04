@@ -1,3 +1,9 @@
+#### 2.2.0 March 7 2022 ####
+
+- Removed `GitVersion` from each of the `templates`
+- Added `SetFilePermission` to help users fix permission issue on `Linux` system
+
+
 #### 2.0.1 February 18 2022 ####
 
 - Fix missing `.gitignore` file - set `NoDefaultExcludes` to `true`.
