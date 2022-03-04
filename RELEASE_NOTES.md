@@ -1,4 +1,4 @@
-#### 2.2.0 March 7 2022 ####
+#### 2.0.2 March 7 2022 ####
 
 - Removed `GitVersion` from each of the `templates`
 - Added `SetFilePermission` to help users fix permission issue on `Linux` system
