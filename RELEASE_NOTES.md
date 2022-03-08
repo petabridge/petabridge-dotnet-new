@@ -1,3 +1,9 @@
+#### 2.0.3 March 8 2022 ####
+
+- Added `.gitattributes` to prevent line endings from being modified upon checkout
+- Updated `pr_validation` to run `All` and not `RunTests`
+- Added steps to convert `build.cmd` and `build.sh` to executables - a fix for file permission issue.
+
 #### 2.0.2 March 7 2022 ####
 
 - Removed `GitVersion` from each of the `templates`

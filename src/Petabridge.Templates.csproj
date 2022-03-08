@@ -2,14 +2,16 @@
   <PropertyGroup>
     <PackageType>Template</PackageType>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageVersion>2.0.1</PackageVersion>
+    <PackageVersion>2.0.3</PackageVersion>
     <PackageId>Petabridge.Templates</PackageId>
     <Title>Petabridge.Templates</Title>
     <Authors>Petabridge</Authors>
     <Description>Professional .NET Core templates complete with CI, Docs, and more. Supports library, Akka.NET, and ASP.NET Core application types.</Description>
     <PackageTags>dotnet-new;templates;petabridge;akka;</PackageTags>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <PackageReleaseNotes>- Fix missing `.gitignore` file - set `NoDefaultExcludes` to `true`.</PackageReleaseNotes>
+    <PackageReleaseNotes>- Added `.gitattributes` to prevent line endings from being modified upon checkout
+- Updated `pr_validation` to run `All` and not `RunTests`
+- Added steps to convert `build.cmd` and `build.sh` to executables - a fix for file permission issue.</PackageReleaseNotes>
     <IncludeContentInPack>true</IncludeContentInPack>
     <IncludeBuildOutput>false</IncludeBuildOutput>
     <ContentTargetFolders>content</ContentTargetFolders>
