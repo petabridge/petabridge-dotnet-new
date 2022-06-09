@@ -1,30 +1,6 @@
-#### 2.0.3 March 17 2022 ####
+#### 2.1.0 June 09 2022 ####
 
-- Added `.gitattributes` to prevent line endings from being modified upon checkout
-- Updated `pr_validation` to run `All` and not `RunTests`
-- Added steps to convert `build.cmd` and `build.sh` to executables - a fix for file permission issue.
-- Added `GitHubRelease` for publishing release on GitHub.
-
-#### 2.0.2 March 7 2022 ####
-
-- Removed `GitVersion` from each of the `templates`
-- Added `SetFilePermission` to help users fix permission issue on `Linux` system
-
-
-#### 2.0.1 February 18 2022 ####
-
-- Fix missing `.gitignore` file - set `NoDefaultExcludes` to `true`.
-
-
-#### 2.0.0 February 17 2022 ####
-
-- Switched build automation system from FAKE to [NUKE](https://nuke.build/)
-- Upgraded [pb-lib](https://github.com/petabridge/Petabridge.Library/), [`pb-akka-cluster`](https://github.com/petabridge/Petabridge.App) and [`pb-akka-web`](https://github.com/petabridge/Petabridge.App.Web) to all use .NET 6
-- Replaced `common.props` with `Directory.Build.props`
-- Git versioning with [GitVersion](https://gitversion.net/)
-- Added README to NuGet Package
-
-#### 1.2.0 April 15 2021 ####
-
-- Upgraded [`pb-akka-cluster`](https://github.com/petabridge/Petabridge.App) and [`pb-akka-web`](https://github.com/petabridge/Petabridge.App.Web) to both use .NET 5
-- Modernized [`pb-akka-cluster`](https://github.com/petabridge/Petabridge.App) and [`pb-akka-web`](https://github.com/petabridge/Petabridge.App.Web) to both [use the best `IHostedService` practices for running Akka.NET services behind the scenes](https://petabridge.com/blog/akkadotnet-ihostedservice/).
+- Migrated Petabridge.App and Petabridge.App.Web templates to use [Akka.Hosting](https://github.com/akkadotnet/Akka.Hosting)
+- Migrated Petabridge.App and Petabridge.App.Web to use file-scoped namespaces and minimal .NET 6 APIs
+- Enabled nullability for Petabridge.App and Petabridge.App.Web
+- Removed dependency on Akka.Bootstrap.Docker, migrated to using Microsoft.Extensions.Configuration instead
