@@ -1,4 +1,4 @@
-#### 2.2.1 August 10 2022 ####
+#### 2.1.1 August 10 2022 ####
 
 * Migrated to using `Nuke.GlobalTool`;
 * Fixed bugs with NUKE GitHub release stages;
