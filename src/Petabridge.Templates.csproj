@@ -2,23 +2,27 @@
   <PropertyGroup>
     <PackageType>Template</PackageType>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageVersion>2.0.3</PackageVersion>
+    <PackageVersion>2.1.1</PackageVersion>
     <PackageId>Petabridge.Templates</PackageId>
     <Title>Petabridge.Templates</Title>
     <Authors>Petabridge</Authors>
     <Description>Professional .NET Core templates complete with CI, Docs, and more. Supports library, Akka.NET, and ASP.NET Core application types.</Description>
     <PackageTags>dotnet-new;templates;petabridge;akka;</PackageTags>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <PackageReleaseNotes>- Added `.gitattributes` to prevent line endings from being modified upon checkout
-- Updated `pr_validation` to run `All` and not `RunTests`
-- Added steps to convert `build.cmd` and `build.sh` to executables - a fix for file permission issue.</PackageReleaseNotes>
+    <PackageReleaseNotes>Migrated to using `Nuke.GlobalTool`;
+Fixed bugs with NUKE GitHub release stages;
+[Bumped Akka.NET version to 1.4.40](https://github.com/akkadotnet/akka.net/releases/tag/1.4.40)
+[Bumped Akka.Hosting to 0.4.1](https://github.com/akkadotnet/Akka.Hosting/releases/tag/0.4.1).</PackageReleaseNotes>
     <IncludeContentInPack>true</IncludeContentInPack>
     <IncludeBuildOutput>false</IncludeBuildOutput>
     <ContentTargetFolders>content</ContentTargetFolders>
     <NoDefaultExcludes>true</NoDefaultExcludes>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageIcon>logo.png</PackageIcon>
   </PropertyGroup>
   <ItemGroup>
     <None Include="..\README.md" Pack="true" PackagePath="\" />
+    <None Include="..\logo.png" Pack="true" Visible="false" PackagePath="\" />
     <Content Include="templates\**\*" Exclude="templates\**\bin\**;templates\**\obj\**;templates\**\.git" />
     <Compile Remove="**\*" />
   </ItemGroup>
