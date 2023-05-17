@@ -1,4 +1,3 @@
-#### 2.2.0 February 22 2023 ####
+#### 2.2.1 May 27 2023 ####
 
-* Migrated to using centralized package management
-* Migrated to using package source management in `NuGet.config`
+* Updated downstream dependencies (Akka.NET, .NET SDK)
